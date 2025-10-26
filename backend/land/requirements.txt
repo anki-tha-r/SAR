@@ -1,0 +1,15 @@
+opencv-python
+matplotlib
+albumentations
+segmentation-models-pytorch
+flask
+Pillow
+tqdm
+scikit-learn
+psutil
+tqdm
+albumentations
+segmentation_models_pytorch
+pandas
+# optional but recommended
+tensorboard
