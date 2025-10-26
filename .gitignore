@@ -1,0 +1,73 @@
+ui/node_modules/
+ui/public/
+ui/package-lock.json
+
+# road/checkpoints/*
+backend/static
+backend/building/tiff/
+backend/building/dataset/
+backend/building/checkpoints/
+backend/land/checkpoints/
+backend/building/predictions_di/
+# # But don't ignore these two specific files
+# !road/checkpoints/unet_checkpoint.pth
+# !road/checkpoints/unet_model.pth
+# =====================================
+# Global ignores
+# =====================================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.env
+*.DS_Store
+
+# Virtual environment folders
+backend/venv/
+env/
+
+# =====================================
+# Backend (Python)
+# =====================================
+# # Ignore model checkpoints except two files
+backend/checkpoints/*
+!backend/checkpoints/file1.pth
+!backend/checkpoints/file2.pth
+
+# Ignore any generated files or datasets
+backend/static/
+backend/templates/__pycache__/
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ipynb_checkpoints/
+
+backend/land/static/
+backend/land/dataset
+backend/;and/templates/__pycache__/
+backend/land/.pytest_cache/
+backend/land/.mypy_cache/
+backend/land/.ipynb_checkpoints/
+
+# =====================================
+# Frontend (React)
+# =====================================
+ui/node_modules/
+ui/build/
+ui/.env.local
+ui/.env.development.local
+ui/.env.test.local
+ui/.env.production.local
+ui/npm-debug.log*
+ui/yarn-debug.log*
+ui/yarn-error.log*
+
+# =====================================
+# System-specific files
+# =====================================
+Thumbs.db
+
+land/
+

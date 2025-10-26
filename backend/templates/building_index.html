@@ -1,0 +1,137 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Building Detection</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 24px auto; }
+    .images { display:flex; gap:12px; margin-top:12px; align-items:flex-start; }
+    .images img { max-width: 45%; border:1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Building Detection</h1>
+
+  <form id="upload-form" method="post" enctype="multipart/form-data" action="/building_output">
+    <input type="file" name="file" id="file-input" accept="image/*" required />
+    <button type="submit">Upload & Predict</button>
+  </form>
+
+  <div id="status" style="margin-top:12px;"></div>
+
+  <div class="images" id="result-area" style="display:none;">
+    <div>
+      <h4>Input</h4>
+      <img id="input-img" src="" alt="input image" />
+    </div>
+    <div>
+      <h4>Predicted Mask</h4>
+      <img id="output-img" src="" alt="predicted mask" />
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('upload-form');
+    const status = document.getElementById('status');
+    const resultArea = document.getElementById('result-area');
+    const inputImg = document.getElementById('input-img');
+    const outputImg = document.getElementById('output-img');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById('file-input');
+      if (!fileInput.files.length) return;
+      const formData = new FormData();
+      formData.append('file', fileInput.files[0]);
+
+      status.textContent = 'Uploading and predicting...';
+      resultArea.style.display = 'none';
+
+      try {
+        const res = await fetch('/building_output', {
+          method: 'POST',
+          body: formData
+        });
+        if (!res.ok) throw new Error('Server error');
+        const data = await res.json();
+
+        inputImg.src = data.input_image + '?_=' + Date.now();
+        outputImg.src = data.output_image + '?_=' + Date.now();
+        resultArea.style.display = 'flex';
+        status.textContent = 'Done';
+      } catch (err) {
+        status.textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Building Detection</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 900px; margin: 24px auto; }
+    .images { display:flex; gap:12px; margin-top:12px; align-items:flex-start; }
+    .images img { max-width: 45%; border:1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>Building Detection</h1>
+
+  <form id="upload-form" method="post" enctype="multipart/form-data" action="/building_output">
+    <input type="file" name="file" id="file-input" accept="image/*" required />
+    <button type="submit">Upload & Predict</button>
+  </form>
+
+  <div id="status" style="margin-top:12px;"></div>
+
+  <div class="images" id="result-area" style="display:none;">
+    <div>
+      <h4>Input</h4>
+      <img id="input-img" src="" alt="input image" />
+    </div>
+    <div>
+      <h4>Predicted Mask</h4>
+      <img id="output-img" src="" alt="predicted mask" />
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('upload-form');
+    const status = document.getElementById('status');
+    const resultArea = document.getElementById('result-area');
+    const inputImg = document.getElementById('input-img');
+    const outputImg = document.getElementById('output-img');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fileInput = document.getElementById('file-input');
+      if (!fileInput.files.length) return;
+      const formData = new FormData();
+      formData.append('file', fileInput.files[0]);
+
+      status.textContent = 'Uploading and predicting...';
+      resultArea.style.display = 'none';
+
+      try {
+        const res = await fetch('/building_output', {
+          method: 'POST',
+          body: formData
+        });
+        if (!res.ok) throw new Error('Server error');
+        const data = await res.json();
+
+        inputImg.src = data.input_image + '?_=' + Date.now();
+        outputImg.src = data.output_image + '?_=' + Date.now();
+        resultArea.style.display = 'flex';
+        status.textContent = 'Done';
+      } catch (err) {
+        status.textContent = 'Error: ' + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
